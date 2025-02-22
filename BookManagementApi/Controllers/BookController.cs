@@ -84,6 +84,16 @@ namespace YourNamespace.Controllers
 				.Take(pageSize)
 				.ToListAsync();
 
+			//way 2 client calculation
+			//var titles =  _db.Books
+			//	.Where(b => !b.IsDeleted)
+			//	.AsNoTracking()
+			//	.AsEnumerable() 
+			//	.OrderByDescending(b => b.PopularityScore)
+			//	.Select(b => b.Title)
+			//  .Skip((pageNumber - 1) * pageSize)
+			//	.ToList();
+
 			return Ok(new
 			{
 				PageNumber = pageNumber,
